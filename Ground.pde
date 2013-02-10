@@ -6,7 +6,7 @@ class Ground {
    this.h = height/2;
  }
   
- public double Slope(int x, int y) {
+ public double Slope(int x) {
   return 0; 
  }
  

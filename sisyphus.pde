@@ -2,27 +2,28 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-//Agent agent;
+Agent agent;
 Ground ground;
 
 void setup() {
   size(500, 500);
   ground = new Ground();
-//  agent = new Agent(ground);
+  agent = new Agent(ground, new PVector(250, 250));
 }
 
 void draw() {
   background(0);
   
-  int key = NONE;
+  int k = NONE;
   if (keyPressed) {
+    System.out.println("Key: " + key);
     if (key == 'a')
-      key = LEFT;
+      k = LEFT;
     else if (key == 'd')
-      key = RIGHT;    
+      k = RIGHT;    
   }
-//  agent.Move(key);
+  agent.Move(k);
   
   ground.Draw();
-//  agent.Draw();
+  agent.Draw();
 }

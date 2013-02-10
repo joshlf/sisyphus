@@ -2,6 +2,7 @@ class Agent {
  
  private Ground ground;
  private PVector position;
+ private PVector velocity;
  
  Agent(Ground ground, PVector position) {
   this.ground = ground;
@@ -10,7 +11,7 @@ class Agent {
  
  public void Draw() {
   fill(255);
-  ellipse(position.x, position.y, 10, 10); 
+  ellipse(position.x, position.y - 10, 10, 10); 
  }
  
  public void Move(int key) {
@@ -25,5 +26,6 @@ class Agent {
        System.out.println("Error: impossible key value: " + key); 
      }
    }
+   position.y = height - ground.Y(int(position.x));
  }
 }

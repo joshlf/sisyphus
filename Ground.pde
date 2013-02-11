@@ -33,9 +33,10 @@ class Ground {
      // is reasonable (without this, wild
      // spikes and troughs are frequent)
      diff = heights[i] - heights[0];
-     ddy = random(-diff/100, diff/100);
+     ddy = -random((diff - 250)/250, (diff + 250)/250);
      
      dy += ddy;
+     dy *= .99;
    }
  }
   

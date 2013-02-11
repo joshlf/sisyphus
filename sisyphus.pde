@@ -12,11 +12,12 @@ void setup() {
 }
 
 void draw() {
+  translate(0, height);
+  scale(1, -1);
   background(0);
   
   int k = NONE;
   if (keyPressed) {
-    System.out.println("Key: " + key);
     if (key == 'a')
       k = LEFT;
     else if (key == 'd')

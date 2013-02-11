@@ -2,6 +2,13 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+/*
+  TODO: 
+    - Fix ground generation so it's more reasonable
+    - Fix agent going into ground (perhaps expand on the following idea:
+        draw the height of the ground for x at (x, heights[x] - abs(slope[x])))
+*/
+
 Agent agent;
 Ground ground;
 

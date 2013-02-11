@@ -50,16 +50,23 @@ class Ground {
  public void Draw() {
    fill(255);
    stroke(255);
-   line(0,250,500,250);
-   for (int i = 0; i+1 < heights.length; i++) {
+   
+   
+   if (DEBUG) {
+     line(0,250,500,250);
+     for (int i = 0; i + 1 < heights.length; i++) {
        noStroke();
-       fill(255);  
+       fill(255);
        ellipse(i, heights[i], 2, 2);
-//       fill(255, 0, 0);
+       
        stroke(255, 0, 0);
        line(i, 250 - (slopes[i] * 10), i, 250 - (slopes[i + 1] * 10));
-//       ellipse(i, 250 - (slopes[i] * 10), 2, 2);
-//     line(i, 0, i, heights[i]);
+     }    
+   } else {
+     for (int i = 0; i < heights.length; i++) {
+       stroke(255);
+       line(i, 0, i, heights[i]);
+     }
    }
  }
  

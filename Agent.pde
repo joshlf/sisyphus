@@ -16,6 +16,8 @@ class Agent {
  
  public void Draw() {
   fill(255);
+  noStroke();
+  smooth();
   ellipse(position.x, position.y + 10, 10, 10); 
  }
  

@@ -8,7 +8,7 @@ Ground ground;
 void setup() {
   size(500, 500);
   ground = new Ground();
-  agent = new Agent(ground, new PVector(250, 250));
+  agent = new Agent(ground, 250);
 }
 
 void draw() {

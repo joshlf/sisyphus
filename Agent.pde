@@ -4,9 +4,10 @@ class Agent {
  private PVector position;
  private PVector velocity;
  
- Agent(Ground ground, PVector position) {
+ Agent(Ground ground, int x) {
   this.ground = ground;
-  this.position = position;
+  this.position = new PVector(x, height - ground.Y(x));
+  this.velocity = new PVector(0, 0);
  }
  
  public void Draw() {
@@ -15,17 +16,27 @@ class Agent {
  }
  
  public void Move(int key) {
+   velocity.set(0, 0, 0);
    if (key != NONE) {
      if (key == LEFT) {
        System.out.println("Moving left");
-       position.add(unit_left);
+       // Don't assign directly so as not to overwrite constant
+       velocity.set(unit_left.x, unit_left.y, 0);
      } else if (key == RIGHT) {
        System.out.println("Moving right");
-       position.add(unit_right);
+       velocity.set(unit_right.x, unit_right.y, 0);
      } else {
        System.out.println("Error: impossible key value: " + key); 
      }
+//     float slope = ground.Slope(int(position.x));
+//     println(slope);
+     velocity.y = velocity.x * -1 *  ground.Slope(int(position.x));
+     velocity.normalize();
+     position.add(velocity);
+//     position.y = height - ground.Y(int(position.x));
+//     println(position + ",  " + velocity);
    }
-   position.y = height - ground.Y(int(position.x));
+   
+   //   position.y = height - ground.Y(int(position.x));
  }
 }
